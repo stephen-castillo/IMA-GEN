@@ -19,6 +19,21 @@ import { Card, FormField, Loader } from '../components';
 const renderDate = (date) =>
   `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 
+  const renderDate = (date) =>
+  `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+
+const RenderCards = ({ data, title }) => {
+  if (data?.length > 0) {
+    return (
+      data.map((post) => <Card key={post._id} {...post} />)
+    );
+  }
+
+  return (
+    <h2 className="mt-5 font-bold text-[#d4ba15] text-xl uppercase">{title}</h2>
+  );
+};
+
 
 
   export default function ProtectedUserPage() {
