@@ -3,8 +3,8 @@ import '../styles/Home.css';
 export default function Home() {
   return (
     <div>
-      <div className='container'>
-
+        <div className='container'>
+          <button className='button'>Get Started</button>
         <div className='bubbles'>
           <span style={{'--i':11}}></span>
           <span style={{'--i':12}}></span>
@@ -57,8 +57,6 @@ export default function Home() {
           <span style={{'--i':24}}></span>
         </div>
       </div>
-      
-        
-    </div>
+     </div>
   );
 }
