@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import RequireAuth from "./components/RequireAuth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import ProtectedPageExample from "./pages/ProtectedPageExample";
+import ProtectedPage from "./pages/ProtectedPage";
 import SignUp from "./pages/SignUp";
 import { client } from "./util/apolloClient";
 import { AuthProvider } from "./util/auth";
@@ -25,7 +25,7 @@ function App() {
               path="/protected"
               element={
                 <RequireAuth>
-                  <ProtectedPageExample />
+                  <ProtectedPage />
                 </RequireAuth>
               }
             />
