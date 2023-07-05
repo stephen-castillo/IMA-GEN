@@ -6,7 +6,7 @@ export default function Home() {
       <div className='container'>
 
         <div className='bubbles'>
-          <span> </span>
+          <span style={{'--i':11}}></span>
         </div>
       </div>
       
