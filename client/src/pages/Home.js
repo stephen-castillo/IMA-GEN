@@ -6,7 +6,7 @@ export default function Home() {
       <div className='container'>
 
         <div className='bubbles'>
-          <span></span>
+          <span> </span>
         </div>
       </div>
       
