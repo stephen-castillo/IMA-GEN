@@ -14,7 +14,7 @@ import { useAuth } from "../util/auth";
 import { ME } from "../util/queries";
 
 import React, { useEffect, useState } from 'react';
-import { Card, FormField } from '../components';
+import { Card, FormField, Loader } from '../components';
 
 const renderDate = (date) =>
   `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
@@ -23,13 +23,14 @@ const renderDate = (date) =>
 
   export default function ProtectedUserPage() {
     const { user } = useAuth();
-    const { data } = useQuery(ME, {
+    const { data, loading } = useQuery(ME, {
       fetchPolicy: "network-only",
     });
     console.log(user);
 
-    const [loading, setLoading] = useState(false);
+    const [loadingb, setLoading] = useState(true);
     const [allPosts, setAllPosts] = useState(null);
+    const [searchText, setSearchText] = useState('');
 
     return (
       <section className="max-w-7xl mx-auto">
@@ -44,7 +45,7 @@ const renderDate = (date) =>
           <h1 className="font-extrabold text-[#1535d4] text-[32px]">
             AI Image Gallery
           </h1>
-          <p className="mt-2 text-[#1535d4] text-[16px] max-w-[500px]">
+          <p className="mt-2 text-[#666f75] text-[16px] max-w-[500px]">
             DALL-E AI Visual Odyssey: Embark on a visual journey through a
             captivating series of AI-generated images, crafted by DALL-E's
             imaginative algorithms.
@@ -54,6 +55,34 @@ const renderDate = (date) =>
         <div className="mt-16">
           <FormField />
         </div>
+        <div className="mt-10">
+        {loadingb ? (
+          <div className="flex justify-center items-center">
+            <Loader />
+          </div>
+        ) : (
+          <>
+            {searchText && (
+              <h2 className="font-medium text-[#1535d4] text-xl mb-3">
+                Showing Resuls for <span className="text-[#1535d4]">{searchText}</span>:
+              </h2>
+            )}
+            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+              {searchText ? (
+                <RenderCards
+                  data={searchedResults}
+                  title="No Search Results Found"
+                />
+              ) : (
+                <RenderCards
+                  data={allPosts}
+                  title="No Posted AI Images Yet"
+                />
+              )}
+            </div>
+          </>
+        )}
+      </div>
       </section>
     );
   }
