@@ -26,3 +26,18 @@ body
     display: flex;
 }
 
+.bubbles span
+{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #ff2d75;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4fc3dc44,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
