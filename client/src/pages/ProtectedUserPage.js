@@ -16,9 +16,6 @@ import { ME } from "../util/queries";
 import React, { useEffect, useState } from 'react';
 import { Card, FormField, Loader } from '../components';
 
-const renderDate = (date) =>
-  `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
-
   const renderDate = (date) =>
   `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
 
