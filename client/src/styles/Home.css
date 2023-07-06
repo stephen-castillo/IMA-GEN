@@ -63,13 +63,23 @@ body
     }
 }
 
-.button {
+.GSbutton {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 12px 24px;
-    background-color: blue;
+    background: #0c192c;
     color: white;
     z-index: 1;
+    font-family: 'Poppins', sans-serif;
   }
+
+  .GSbutton a
+  {
+    position: relative;
+    background: #0c192c;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
