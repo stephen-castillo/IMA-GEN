@@ -120,9 +120,30 @@ body
     transition: 0.5s;
  }
 
- .GSbutton:hover i::before
+ .GSbutton:hover i::after
  {
     width: 20px;
+    left: 20%;
  }
+
+ .GSbutton i::after
+ {
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: 80%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid #fff;
+    background: #0c192c;
+    transition: 0.5s;
+ }
+
+ .GSbutton:hover i::after
+ {
+    width: 20px;
+    left: 20%;
+ }
+ 
  
 
