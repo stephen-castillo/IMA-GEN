@@ -107,3 +107,22 @@ body
     display: block;
  }
 
+ .GSbutton i::before
+ {
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: 80%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid #fff;
+    background: #0c192c;
+    transition: 0.5s;
+ }
+
+ .GSbutton:hover i::before
+ {
+    width: 20px;
+ }
+ 
+
