@@ -40,7 +40,7 @@ const RenderCards = ({ data, title }) => {
     });
     console.log(user);
 
-    const [loadingb, setLoading] = useState(true);
+    const [loadingb, setLoading] = useState(false);
     const [allPosts, setAllPosts] = useState(null);
     const [searchText, setSearchText] = useState('');
 
@@ -57,7 +57,7 @@ const RenderCards = ({ data, title }) => {
           <h1 className="font-extrabold text-[#1535d4] text-[32px]">
             AI Image Gallery
           </h1>
-          <p className="mt-2 text-[#666f75] text-[16px] max-w-[500px]">
+          <p className="mt-2 text-[#666f75] text-[14px] max-w-[500px]">
             DALL-E AI Visual Odyssey: Embark on a visual journey through a
             captivating series of AI-generated images, crafted by DALL-E's
             imaginative algorithms.
@@ -82,12 +82,12 @@ const RenderCards = ({ data, title }) => {
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
               {searchText ? (
                 <RenderCards
-                  data={searchedResults}
+                  data={[]}
                   title="No Search Results Found"
                 />
               ) : (
                 <RenderCards
-                  data={allPosts}
+                  data={[]}
                   title="No Posted AI Images Yet"
                 />
               )}

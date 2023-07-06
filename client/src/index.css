@@ -477,7 +477,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 :root {
-  background-color: black;
+  /* background-color: black; */
   color: silver;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
