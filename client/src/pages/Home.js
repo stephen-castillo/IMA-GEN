@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
         <div className='container'>
-          <button className='button'>Get Started</button>
+          <button className='GSbutton' style={{'--clr':'#ff1867', 'color':'white'}}>Get Started<i></i></button>
         <div className='bubbles'>
           <span style={{'--i':11}}></span>
           <span style={{'--i':12}}></span>
