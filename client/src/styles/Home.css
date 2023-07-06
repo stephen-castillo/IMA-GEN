@@ -75,7 +75,7 @@ body
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.15em;
+    font-size: 1em;
     letter-spacing: 0.1em;
     padding: 10px 30px;
     transition: 0.5s;
@@ -84,6 +84,9 @@ body
   .GSbutton:hover
   {
     letter-spacing: 0.25em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
   }
 
  .GSbutton::before 
@@ -96,7 +99,7 @@ body
 
  .GSbutton span 
  {
-    position: relative;
+    position: absolute;
     z-index: 1;
  }
 
@@ -117,10 +120,11 @@ body
     height: 5px;
     border: 2px solid #fff;
     background: #0c192c;
+    transform: translateX(-50%);
     transition: 0.5s;
  }
 
- .GSbutton:hover i::after
+ .GSbutton:hover i::before
  {
     width: 20px;
     left: 20%;
@@ -130,19 +134,20 @@ body
  {
     content: '';
     position: absolute;
-    top: -3.5px;
-    left: 80%;
+    bottom: -3.5px;
+    left: 20%;
     width: 10px;
     height: 5px;
     border: 2px solid #fff;
     background: #0c192c;
+    transform: translateX(50%);
     transition: 0.5s;
  }
 
  .GSbutton:hover i::after
  {
     width: 20px;
-    left: 20%;
+    left: 72%;
  }
  
  
