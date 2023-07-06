@@ -1,18 +1,62 @@
-import { useAuth } from "../util/auth";
+import '../styles/Home.css';
 
 export default function Home() {
-  const { isLoggedIn, user } = useAuth();
   return (
     <div>
-      {/* TODO: display logged in user's username */}
-      <h1>Welcome {isLoggedIn ? user.username : "Guest"}!</h1>
-      <hr />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cumque
-        explicabo ipsum, facilis repellendus omnis amet in accusantium quisquam
-        nam qui consectetur sunt distinctio nemo molestiae ratione. Iure,
-        aliquam debitis.
-      </p>
-    </div>
+        <div className='container'>
+          <button className='button'>Get Started</button>
+        <div className='bubbles'>
+          <span style={{'--i':11}}></span>
+          <span style={{'--i':12}}></span>
+          <span style={{'--i':24}}></span>
+          <span style={{'--i':10}}></span>
+          <span style={{'--i':14}}></span>
+          <span style={{'--i':23}}></span>
+          <span style={{'--i':18}}></span>
+          <span style={{'--i':16}}></span>
+          <span style={{'--i':19}}></span>
+          <span style={{'--i':20}}></span>
+          <span style={{'--i':22}}></span>
+          <span style={{'--i':25}}></span>
+          <span style={{'--i':18}}></span>
+          <span style={{'--i':21}}></span>
+          <span style={{'--i':15}}></span>
+          <span style={{'--i':13}}></span>
+          <span style={{'--i':26}}></span>
+          <span style={{'--i':17}}></span>
+          <span style={{'--i':13}}></span>
+          <span style={{'--i':28}}></span>
+          <span style={{'--i':11}}></span>
+          <span style={{'--i':16}}></span>
+          <span style={{'--i':19}}></span>
+          <span style={{'--i':20}}></span>
+          <span style={{'--i':28}}></span>
+          <span style={{'--i':13}}></span>
+          <span style={{'--i':17}}></span>
+          <span style={{'--i':12}}></span>
+          <span style={{'--i':24}}></span>
+          <span style={{'--i':16}}></span>
+          <span style={{'--i':29}}></span>
+          <span style={{'--i':14}}></span>
+          <span style={{'--i':11}}></span>
+          <span style={{'--i':13}}></span>
+          <span style={{'--i':16}}></span>
+          <span style={{'--i':24}}></span>
+          <span style={{'--i':20}}></span>
+          <span style={{'--i':15}}></span>
+          <span style={{'--i':21}}></span>
+          <span style={{'--i':14}}></span>
+          <span style={{'--i':19}}></span>
+          <span style={{'--i':21}}></span>
+          <span style={{'--i':29}}></span>
+          <span style={{'--i':12}}></span>
+          <span style={{'--i':11}}></span>
+          <span style={{'--i':17}}></span>
+          <span style={{'--i':15}}></span>
+          <span style={{'--i':21}}></span>
+          <span style={{'--i':24}}></span>
+        </div>
+      </div>
+     </div>
   );
 }
