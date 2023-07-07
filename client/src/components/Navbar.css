@@ -3,7 +3,7 @@
 }
 
 .navbar-link {
-  --border: 1px solid #444;
+  --border: 1px solid #4a648c;
 
   display: block;
   width: 4em;
@@ -18,6 +18,7 @@
   cursor: pointer;
   font-size: inherit;
   color: inherit;
+  border-radius: 4px;
 }
 
 .navbar-link:first-child {
@@ -25,18 +26,19 @@
 }
 
 .navbar-link:hover {
-  background-color: #ddd;
+  background-color: #4a648c;
 }
 
 .navbar-link:active {
-  background-color: #666;
+  background-color: #5a648c;
   color: white;
 }
 
 .active,
 .active:hover,
 .active:active {
-  color: white;
-  background-color: #444;
+  color:white;
+  background-color: #ff1867;
   cursor: default;
+  opacity: 1.0;
 }
