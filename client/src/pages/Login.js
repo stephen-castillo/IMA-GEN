@@ -20,7 +20,8 @@ const styles = {
   Sbutton: {
     backgroundColor: "#ff1867",
     color: "white",
-  }
+  },
+
 };
 
 const initialFormState = {
