@@ -20,7 +20,12 @@ const CreatePost = () => {
     const [loading, setLoading] = useState(false);
 
     return (
-        <div>CreatePost</div>
+        <section className='max-w-tx1 mx-auto'>
+            <div>
+                
+            </div>
+
+        </section>
     )
 }
 
