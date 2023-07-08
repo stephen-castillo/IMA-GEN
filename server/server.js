@@ -53,8 +53,6 @@ async function startServer(typeDefs, resolvers) {
     console.log(
       `🚀 Apollo Server ready at http://localhost:${PORT}${server.graphqlPath}`
     );
-    //listModels();
-    getImage();
     
   } catch (error) {
     console.log(error);
