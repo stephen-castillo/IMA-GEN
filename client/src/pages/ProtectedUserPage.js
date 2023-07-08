@@ -47,17 +47,19 @@ const RenderCards = ({ data, title }) => {
     return (
       <section className="max-w-7xl mx-auto">
         <div>
-          <h1 className="mt-10 ml-100 text-[white] text-[16px] max-w-[200px]">Welcome {user.username}!</h1>
-          <p className="mt-2 ml-100 text-[#666f75] text-[11px] max-w-[500px]">
+          <h1 className="mt-8 ml-4 text-[white] text-[18px] max-w-[200px]">
+            Welcome {user.username}!
+          </h1>
+          <p className="mt-2 ml-4 text-[#666f75] text-[10px] max-w-[500px]">
             Last Login:{" "}
             {loading
               ? "Loading..."
               : data && renderDate(new Date(data.me.lastLogin))}
           </p>
-          <h1 className="mt-5 ml-50 font-extrabold text-[#a8eb12] text-[40px]">
+          <h1 className="mt-6 ml-40 font-extrabold text-[#a8eb12] text-[40px] max-w-[600px]">
             IMA-GEN
           </h1>
-          <p className="mt-2 text-[#666f75] text-[14px] max-w-[500px]">
+          <p className="mt-2 text-[#666f75] text-[14px] max-w-[600px]">
             DALL-E AI Visual Odyssey: Embark on a visual journey through a
             captivating series of AI-generated images, crafted by DALL-E's
             imaginative algorithms.
@@ -65,36 +67,38 @@ const RenderCards = ({ data, title }) => {
         </div>
 
         <div className="mt-16">
-          <FormField />
+          <FormField
+            // labelName="Search posts"
+            // type="text"
+            // name="text"
+            // placeholder="Search something..."
+            // value={searchText}
+            // handleChange={handleSearchChange}
+          />
         </div>
         <div className="mt-10">
-        {loadingb ? (
-          <div className="flex justify-center items-center">
-            <Loader />
-          </div>
-        ) : (
-          <>
-            {searchText && (
-              <h2 className="font-medium text-[#1535d4] text-xl mt-5 mb-3">
-                Showing Resuls for <span className="text-[#1535d4]">{searchText}</span>:
-              </h2>
-            )}
-            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
-              {searchText ? (
-                <RenderCards
-                  data={[]}
-                  title="No Search Results Found"
-                />
-              ) : (
-                <RenderCards
-                  data={[]}
-                  title="No Posted AI Images Yet"
-                />
-              )}
+          {loadingb ? (
+            <div className="flex justify-center items-center">
+              <Loader />
             </div>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              {searchText && (
+                <h2 className="font-medium text-[#1535d4] text-xl mt-5 mb-3">
+                  Showing Resuls for{" "}
+                  <span className="text-[#1535d4]">{searchText}</span>:
+                </h2>
+              )}
+              <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+                {searchText ? (
+                  <RenderCards data={[]} title="No Search Results Found" />
+                ) : (
+                  <RenderCards data={[]} title="No Posted AI Images Yet" />
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </section>
     );
   }
