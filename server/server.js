@@ -7,6 +7,9 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { authMiddleware } = require("./util/auth");
 
+const { openaiInterface, getEngines, getModels } = require("./util/aiapi");
+const { get } = require("http");
+
 const PORT = process.env.PORT || 3001;
 
 startServer(typeDefs, resolvers);
@@ -50,6 +53,8 @@ async function startServer(typeDefs, resolvers) {
     console.log(
       `🚀 Apollo Server ready at http://localhost:${PORT}${server.graphqlPath}`
     );
+    getModels();
+    
   } catch (error) {
     console.log(error);
     console.log(
