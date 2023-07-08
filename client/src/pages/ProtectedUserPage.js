@@ -60,7 +60,7 @@ const RenderCards = ({ data, title }) => {
             IMA-GEN
           </h1>
           <p className="mt-2 text-[#666f75] text-[14px] max-w-[600px]">
-            DALL-E AI Visual Odyssey: Embark on a visual journey through a
+            A DALL-E AI Visual Odyssey: Embark on a visual journey through a
             captivating series of AI-generated images, crafted by DALL-E's
             imaginative algorithms.
           </p>
@@ -68,11 +68,11 @@ const RenderCards = ({ data, title }) => {
 
         <div className="mt-16">
           <FormField
-            // labelName="Search posts"
-            // type="text"
-            // name="text"
-            // placeholder="Search something..."
-            // value={searchText}
+            labelName="Search posts"
+            type="text"
+            name="text"
+            placeholder="Search something..."
+            value={searchText}
             // handleChange={handleSearchChange}
           />
         </div>
