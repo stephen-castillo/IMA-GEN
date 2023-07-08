@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../util/auth";
-
+import '../styles/SignUp.css';
 // This signup form is intentionally minimalist to reduce effort required to
 // customize it to your app's needs. See the excellent best practices guide for
 // sign informs on web.dev https://web.dev/sign-in-form-best-practices/
@@ -15,6 +15,10 @@ const styles = {
   label: {
     flex: "0 1 6em",
     paddingRight: "0.25em",
+  },
+  Sbutton: {
+    backgroundColor: "#ff1867",
+    color: "white",
   },
 };
 
@@ -98,7 +102,7 @@ export default function SignUp() {
           />
         </div>
         <div style={styles.formControl}>
-          <button disabled={loading} type="submit">
+          <button className = 'Sbutton' style={styles.Sbutton} disabled={loading} type="submit">
             {loading ? "Loading..." : "Submit"}
           </button>
         </div>

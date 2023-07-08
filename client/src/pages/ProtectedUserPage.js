@@ -27,7 +27,7 @@ const RenderCards = ({ data, title }) => {
   }
 
   return (
-    <h2 className="mt-5 font-bold text-[#d4ba15] text-xl uppercase">{title}</h2>
+    <h2 className="mt-5 font-bold text-[#4a648c] text-lg uppercase">{title}</h2>
   );
 };
 
@@ -47,15 +47,15 @@ const RenderCards = ({ data, title }) => {
     return (
       <section className="max-w-7xl mx-auto">
         <div>
-          <h1>Welcome {user.username}!</h1>
-          <p>
+          <h1 className="mt-10 ml-100 text-[white] text-[16px] max-w-[200px]">Welcome {user.username}!</h1>
+          <p className="mt-2 ml-100 text-[#666f75] text-[11px] max-w-[500px]">
             Last Login:{" "}
             {loading
               ? "Loading..."
               : data && renderDate(new Date(data.me.lastLogin))}
           </p>
-          <h1 className="font-extrabold text-[#1535d4] text-[32px]">
-            AI Image Gallery
+          <h1 className="mt-5 ml-50 font-extrabold text-[#a8eb12] text-[40px]">
+            IMA-GEN
           </h1>
           <p className="mt-2 text-[#666f75] text-[14px] max-w-[500px]">
             DALL-E AI Visual Odyssey: Embark on a visual journey through a
@@ -75,7 +75,7 @@ const RenderCards = ({ data, title }) => {
         ) : (
           <>
             {searchText && (
-              <h2 className="font-medium text-[#1535d4] text-xl mb-3">
+              <h2 className="font-medium text-[#1535d4] text-xl mt-5 mb-3">
                 Showing Resuls for <span className="text-[#1535d4]">{searchText}</span>:
               </h2>
             )}
