@@ -22,7 +22,12 @@ const CreatePost = () => {
     return (
         <section className='max-w-tx1 mx-auto'>
             <div>
-                
+                <h1 className='font-extrabold text-black text [32px]'>
+                    Create 
+                </h1>
+                <p className= 'mt-2 text [#666e75] text-[16px] max-w [500px]'>
+                Browse through a captivating assortment of imaginative and visually striking images created by the community through DALL-E AI
+                </p>
             </div>
 
         </section>
