@@ -19,6 +19,15 @@ const CreatePost = () => {
     // Loading
     const [loading, setLoading] = useState(false);
 
+    //
+    const handSubmit = () => {
+
+    }
+
+    const handSubmit = (e) => {
+
+    }
+
     return (
         <section className='max-w-tx1 mx-auto'>
             <div>
@@ -31,7 +40,24 @@ const CreatePost = () => {
             </div>
 
             <form className='mt-16 max-w-3xl' onSubmit={handSubmit}>
-                
+                <div className='flex flex-col gap-5'>
+                    <FormField 
+                    LabelName='Your name'
+                    type='text'
+                    name='name'
+                    placeholder='Some Name'
+                    value={form.name}
+                    handleChange={handleChange}
+                    />
+                     <FormField 
+                    LabelName='Prompt'
+                    type='text'
+                    name='prompt'
+                    placeholder='A close-up of a dew-covered spiderweb glistening in the morning light.'
+                    value={form.name}
+                    handleChange={handleChange}
+                    />
+                </div>
             </form>
 
         </section>
