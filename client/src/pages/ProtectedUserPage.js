@@ -133,9 +133,9 @@ export default function ProtectedUserPage() {
             )}
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
               {searchText ? (
-                <RenderCards data={[]} title="No Search Results Found" />
+                <RenderCards data={searchedResults} title="No Search Results Found" />
               ) : (
-                <RenderCards data={[]} title="No Posted AI Images Yet" />
+                <RenderCards data={allPosts} title="No Posted AI Images Yet" />
               )}
             </div>
           </>
