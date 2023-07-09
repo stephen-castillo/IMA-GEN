@@ -53,9 +53,11 @@ const CreatePost = () => {
                     LabelName='Prompt'
                     type='text'
                     name='prompt'
-                    placeholder='A close-up of a dew-covered spiderweb glistening in the morning light.'
-                    value={form.name}
+                    placeholder='A close-up of a dew-covered spiderweb glistening in the morning light'
+                    value={form.prompt}
                     handleChange={handleChange}
+                    isSurpriseMe
+                    handleSurpriseMe={handleSurpriseMe}
                     />
                 </div>
             </form>
