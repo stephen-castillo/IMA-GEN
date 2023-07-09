@@ -30,6 +30,10 @@ const CreatePost = () => {
                 </p>
             </div>
 
+            <form className='mt-16 max-w-3xl' onSubmit={handSubmit}>
+                
+            </form>
+
         </section>
     )
 }
