@@ -24,7 +24,12 @@ const CreatePost = () => {
 
     }
 
-    const handSubmit = (e) => {
+    const handleChange = (e) => {
+
+    }
+
+    // call utility function to ensure we get a new prompt
+    const handleSurpriseMe = () => {
 
     }
 
