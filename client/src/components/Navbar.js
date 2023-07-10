@@ -9,22 +9,22 @@ export default function Navbar() {
   const shouldRenderCreateButton = isLoggedIn && location.pathname !== "/protectedCreatePost";
 
   return (
-    <nav className="navbar mt-4"> {/* Added top margin using the mt-4 class */}
+    <nav className="navbar mt-4 ml-4 mb-12"> {/* Added top margin using the mt-4 class */}
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>
       {isLoggedIn ? (
         <>
-          <NavLink to="/protected" className="navbar-link">
+          <NavLink to="/protected" className="navbar-link ml-2">
             User
           </NavLink>
-          <button className="navbar-link" onClick={logout}>
+          <button className="navbar-link ml-2" onClick={logout}>
             Logout
           </button>
           {shouldRenderCreateButton && (
             <NavLink
               to="/protectedCreatePost"
-              className="navbar-link"
+              className="navbar-link ml-auto create-button"
             >
               Create
             </NavLink>
