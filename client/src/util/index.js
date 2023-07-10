@@ -1,5 +1,5 @@
 import FileSaver from 'file-saver';
-import { surpriseMePrompts } from '../components'
+import { surpriseMePrompts } from '../components/surpriseMePrompts'
 
 export function getRandomPrompt (prompt) {
     // get random index 1-49
