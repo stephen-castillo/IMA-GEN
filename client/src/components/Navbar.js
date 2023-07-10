@@ -1,11 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../util/auth";
-import "../styles//Navbar.css";
+import "../styles/Navbar.css";
 
 export default function Navbar() {
   const { isLoggedIn, logout } = useAuth();
+  const location = useLocation();
+
+  const shouldRenderCreateButton = isLoggedIn && location.pathname !== "/protectedCreatePost";
+
   return (
-    <nav className="navbar">
+    <nav className="navbar mt-4"> {/* Added top margin using the mt-4 class */}
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>
@@ -17,9 +21,14 @@ export default function Navbar() {
           <button className="navbar-link" onClick={logout}>
             Logout
           </button>
-          <NavLink to="/protectedCreatePost" className="navbar-link">
-            Create
-          </NavLink>
+          {shouldRenderCreateButton && (
+            <NavLink
+              to="/protectedCreatePost"
+              className="navbar-link"
+            >
+              Create
+            </NavLink>
+          )}
         </>
       ) : (
         <>
