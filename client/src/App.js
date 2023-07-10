@@ -5,6 +5,7 @@ import RequireAuth from "./components/RequireAuth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProtectedUserPage from "./pages/ProtectedUserPage";
+import CreatePost from "./pages/CreatePost";
 import SignUp from "./pages/SignUp";
 import { client } from "./util/apolloClient";
 import { AuthProvider } from "./util/auth";
@@ -29,6 +30,14 @@ function App() {
                 </RequireAuth>
               }
             />
+                   <Route
+              path="/protectedCreatePost"
+              element={
+                <RequireAuth>
+                  <CreatePost />
+                </RequireAuth>
+              }
+            />     
           </Routes>
         </AuthProvider>
       </Router>

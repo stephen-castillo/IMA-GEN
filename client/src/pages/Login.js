@@ -67,6 +67,7 @@ export default function Login() {
             Email
           </label>
           <input
+            className="text-[black]"
             disabled={loading}
             id="email"
             type="email"
@@ -81,6 +82,7 @@ export default function Login() {
             Password
           </label>
           <input
+            className="text-[black]"
             disabled={loading}
             id="new-password"
             type="password"

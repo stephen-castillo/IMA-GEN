@@ -63,6 +63,7 @@ export default function SignUp() {
             Username
           </label>
           <input
+            className="text-[black]"
             autoFocus
             disabled={loading}
             id="username"
@@ -78,6 +79,7 @@ export default function SignUp() {
             Email
           </label>
           <input
+            className="text-[black]"
             disabled={loading}
             id="email"
             type="email"
@@ -92,6 +94,7 @@ export default function SignUp() {
             Password
           </label>
           <input
+            className="text-[black]"
             disabled={loading}
             id="new-password"
             type="password"
