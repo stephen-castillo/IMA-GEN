@@ -9,7 +9,7 @@ export default function Navbar() {
   const shouldRenderCreateButton = isLoggedIn && location.pathname !== "/protectedCreatePost";
 
   return (
-    <nav className="navbar mt-4 ml-4 mb-12"> {/* Added top margin using the mt-4 class */}
+    <nav className="navbar mt-4 ml-4 mb-4"> {/* Added top margin using the mt-4 class */}
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>

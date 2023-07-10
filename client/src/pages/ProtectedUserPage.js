@@ -35,7 +35,7 @@ export default function ProtectedUserPage() {
   });
   console.log(user);
 
-  const [loadingb, setLoading] = useState(false);
+  const [loadingb, setLoading] = useState(true);
   const [allPosts, setAllPosts] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
@@ -92,23 +92,23 @@ export default function ProtectedUserPage() {
         <h1 className="mt-8 ml-4 text-[white] text-[13.5px] max-w-[200px]">
           Welcome {user.username}!
         </h1>
-        <p className="mt-2 ml-4 text-[#666f75] text-[10px] max-w-[500px]">
+        <p className="mt-2 mb-8 ml-4 text-[#666f75] text-[10px] max-w-[500px]">
           Last Login:{" "}
           {loading
             ? "Loading..."
             : data && renderDate(new Date(data.me.lastLogin))}
         </p>
-        <h1 className="mt-6 ml-40 font-extrabold text-[#a8eb12] text-[40px] max-w-[600px]">
+        <h1 className="mt-6 ml-44 font-extrabold text-[#a8eb12] text-[40px] ">
           IMA-GEN
         </h1>
-        <p className="mt-2 text-[#666f75] text-[14px] max-w-[600px]">
+        <p className="ml-10 mt-2 mb-1 text-[#666f75] text-[14px] max-w-[700px]">
           A DALL-E AI Visual Odyssey: Embark on a visual journey through a
           captivating series of AI-generated images, crafted by DALL-E's
           imaginative algorithms.
         </p>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-48 ml-4">
         <FormField
           labelName="Search posts"
           type="text"
@@ -131,7 +131,7 @@ export default function ProtectedUserPage() {
                 <span className="text-[#1535d4]">{searchText}</span>:
               </h2>
             )}
-            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
+            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6">
               {searchText ? (
                 <RenderCards data={searchedResults} title="No Search Results Found" />
               ) : (
