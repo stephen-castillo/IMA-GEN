@@ -12,7 +12,7 @@ const FormField = ({
 }) => (
   <div>
     <div className="flex items-center gap-2 mb-2">
-      <label htmlFor={name} className="block text-sm font-medium text white-900">
+      <label htmlFor={name} className="block text-sm font-medium text-white-900">
         {labelName}
       </label>
       {isSurpriseMe && (
