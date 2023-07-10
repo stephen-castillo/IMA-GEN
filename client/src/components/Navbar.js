@@ -17,6 +17,9 @@ export default function Navbar() {
           <button className="navbar-link" onClick={logout}>
             Logout
           </button>
+          <NavLink to="/protectedCreatePost" className="navbar-link">
+            Create
+          </NavLink>
         </>
       ) : (
         <>
