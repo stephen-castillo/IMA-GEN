@@ -24,7 +24,7 @@ export default function Navbar() {
           {shouldRenderCreateButton && (
             <NavLink
               to="/protectedCreatePost"
-              className="navbar-link ml-auto create-button"
+              className="navbar-link ml-auto mr-4 create-button"
             >
               Create
             </NavLink>

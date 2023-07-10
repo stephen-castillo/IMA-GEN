@@ -42,3 +42,9 @@
   cursor: default;
   opacity: 1.0;
 }
+
+.create-button {
+  background-color: #c33a3a;
+  color: white;
+  border: none;
+}

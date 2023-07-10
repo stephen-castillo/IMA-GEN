@@ -89,7 +89,7 @@ export default function ProtectedUserPage() {
   return (
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="mt-8 ml-4 text-[white] text-[18px] max-w-[200px]">
+        <h1 className="mt-8 ml-4 text-[white] text-[13.5px] max-w-[200px]">
           Welcome {user.username}!
         </h1>
         <p className="mt-2 ml-4 text-[#666f75] text-[10px] max-w-[500px]">
