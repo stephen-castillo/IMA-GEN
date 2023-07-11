@@ -3,7 +3,7 @@ import '../styles/Home.css';
 export default function Home() {
   return (
     <div>
-        <div className='container'>
+        <div className='container mx-auto grid g'>
           <button id='GSbutton' className='GSbutton' style={{'--clr':'#ff1867', 'color':'white'}}>Get Started<i></i></button>
         <div className='bubbles'>
           <span style={{'--i':11}}></span>
@@ -54,7 +54,13 @@ export default function Home() {
           <span style={{'--i':17}}></span>
           <span style={{'--i':15}}></span>
           <span style={{'--i':21}}></span>
-          <span style={{'--i':24}}></span>
+          <span style={{'--i':20}}></span>
+          <span style={{'--i':13}}></span>
+          <span style={{'--i':17}}></span>
+          <span style={{'--i':25}}></span>
+          <span style={{'--i':15}}></span>
+          <span style={{'--i':21}}></span>
+          <span style={{'--i':14}}></span>
         </div>
       </div>
      </div>

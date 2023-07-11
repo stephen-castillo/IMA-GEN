@@ -1,0 +1,14 @@
+# Secret used by server for signing JWT
+SECRET='3K3*fTHqS*$Cte7VzAuP^^e^VwtJ7FZP2s%c'
+
+# JWT expiration time expressed in seconds or a string describing a time span. (https://github.com/vercel/ms)
+TOKEN_EXP='2h'
+
+# Mongodub uri connection string
+MONGODB_URI='mongodb+srv://stephencastillo117:zXwKOEYfYk9tNnK7@cluster0.nyuicsg.mongodb.net/IMA-GEN?retryWrites=true&w=majority'
+
+OPENAI_API_KEY='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'
+
+OPENAI_ORGANIZATION='org-g6S2RxZA8Ah8H2sqNOZtzD81'
+
+CLOUDINARY_URL = 'cloudinary://334253125776927:0UnmN6_5QRWPYImE8wTD-ec9x_Y@hrtc1tutf'
