@@ -5,6 +5,7 @@ const {
 const { User } = require("../models");
 const { signToken } = require("../util/auth");
 const { dateScalar } = require("./customScalars");
+const { openaiInterface, getEngines, listModels, getImage, makePrompt } = require("../util/aiapi");
 
 const resolvers = {
   Date: dateScalar,
@@ -16,6 +17,15 @@ const resolvers = {
         throw new AuthenticationError("Must be logged in.");
       }
       return User.findOne({ email: ctx.user.email });
+    },
+    getEngines: async (parent, args) => {
+        const engines = await getEngines();
+        return engines;
+    },
+    listModels: async (parent, args) => {
+        const models = await openaiInterface.listModels();
+        //console.log(models.data);
+        return models.data;
     },
   },
   Mutation: {
@@ -47,6 +57,19 @@ const resolvers = {
       await user.save();
       return { token, user };
     },
+
+    getImage: async (parent, args) => {
+        const prompt = args.prompt;
+        const aiPrompt = await openaiInterface.createImage( { 
+            prompt: prompt,
+            n: 4,
+            size: '1024x1024',
+            response_format: 'b64_json',
+        });
+        console.log(aiPrompt.data);
+        const aiImage = aiPrompt.data.data[0].b64_json;
+        return aiImage;
+    }
   },
 };
 
