@@ -25,11 +25,11 @@ const CreatePost = () => {
 
     //
     const handSubmit = () => {
-        setForm({ ...form, [e.target.name]: e.target.value]})
+        
     }
 
     const handleChange = (e) => {
-
+        
     }
 
     // call utility function to ensure we get a new prompt
