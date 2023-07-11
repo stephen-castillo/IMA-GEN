@@ -9,6 +9,8 @@
 
 body
 {
+    display: inline-flex;
+    justify-content: center;
     min-height: 100vh;
     background: #0c192c;
 }
@@ -23,9 +25,10 @@ body
 
 .bubbles
 {
-    z-index: -100;
+    z-index: 1;
     position: relative;
     display: flex;
+    padding: 0 20px;
 }
 
 .bubbles span
@@ -65,8 +68,8 @@ body
 
 .GSbutton {
     position: relative;
-    top: 50%;
-    left: 50%;
+    top: 50vh;
+    left: 50vw;
     transform: translate(-50%, -50%);
     padding: 12px 24px;
     background: #0c192c;
