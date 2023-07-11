@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
-import { getRandomPrompt } from '../util';
+import { getRandomPrompt, getRandomPrompt } from '../util';
 import { FormField, Loader } from '../components'
 
 const CreatePost = () => {
@@ -20,7 +20,7 @@ const CreatePost = () => {
     const [loading, setLoading] = useState(false);
 
     const generateImage = () => {
-
+        
     }
 
     //
@@ -28,13 +28,15 @@ const CreatePost = () => {
         
     }
 
+    // update the form state when input values change
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value})
     }
 
-    // call utility function to ensure we get a new prompt
+    // call utility function to ensure we always get a new prompt
     const handleSurpriseMe = () => {
-
+        const getRandomPrompt = getRandomPrompt(form.prompt);
+        setForm({ ...form, prompt: randomPrompt})
     }
 
     return (
