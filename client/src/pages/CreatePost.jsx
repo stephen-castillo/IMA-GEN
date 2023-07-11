@@ -19,6 +19,10 @@ const CreatePost = () => {
     // Loading
     const [loading, setLoading] = useState(false);
 
+    const generateImage = () => {
+        
+    }
+
     //
     const handSubmit = () => {
 
@@ -88,6 +92,14 @@ const CreatePost = () => {
                                 </div>
                             )}
                     </div>
+                </div>
+
+                <div className='mt-5 flex gap-5'>
+                    <button
+                        type='button'
+                        onClick={generateImage}
+                    </button>
+
                 </div>
             </form>
 
