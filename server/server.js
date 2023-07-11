@@ -7,7 +7,6 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const { authMiddleware } = require("./util/auth");
 
-const { openaiInterface, getEngines, listModels, getImage, makePrompt } = require("./util/aiapi");
 const { get } = require("http");
 
 const PORT = process.env.PORT || 3001;
