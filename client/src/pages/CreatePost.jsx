@@ -20,7 +20,7 @@ const CreatePost = () => {
     const [loading, setLoading] = useState(false);
 
     const generateImage = () => {
-        
+
     }
 
     //
@@ -98,6 +98,9 @@ const CreatePost = () => {
                     <button
                         type='button'
                         onClick={generateImage}
+                        className='text-white bg-#ff1867-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+                        >
+                           {generatingImg ? 'Generating...' : 'Generate'} 
                     </button>
 
                 </div>
