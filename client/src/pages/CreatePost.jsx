@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
-import { getRandomPrompt, getRandomPrompt } from '../util';
+import { getRandomPrompt } from '../util';
 import { FormField, Loader } from '../components'
 
 const CreatePost = () => {
@@ -35,7 +35,7 @@ const CreatePost = () => {
 
     // call utility function to ensure we always get a new prompt
     const handleSurpriseMe = () => {
-        const getRandomPrompt = getRandomPrompt(form.prompt);
+        const randomPrompt = getRandomPrompt(form.prompt);
         setForm({ ...form, prompt: randomPrompt})
     }
 
