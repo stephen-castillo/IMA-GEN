@@ -25,7 +25,7 @@ const CreatePost = () => {
 
     //
     const handSubmit = () => {
-
+        setForm({ ...form, [e.target.name]: e.target.value]})
     }
 
     const handleChange = (e) => {
