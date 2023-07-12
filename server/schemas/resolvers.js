@@ -59,18 +59,20 @@ const resolvers = {
     },
 
     getImage: async (parent, args) => {
-        console.log(args);
+        //console.log(args);
         const prompt = args.prompt;
         const name = args.name;
         const aiPrompt = await openaiInterface.createImage( { 
             prompt: prompt,
-            n: 4,
-            size: '1024x1024',
-            response_format: 'b64_json',
+            n: 1,
+            size: '512x512',
+            response_format: 'url',
         });
-        console.log(aiPrompt.data);
-        const aiImage = aiPrompt.data.data[0].b64_json;
-        return aiImage;
+        //console.log(aiPrompt.data);
+        //console.log(name);
+        const photo = aiPrompt.data.data[0].url;
+        //console.log(photo);
+        return { prompt, name, photo };
     }
   },
 };
