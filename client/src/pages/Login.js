@@ -194,7 +194,7 @@ export default function Login() {
       </div>
 
       <div className='bg-gray-800 flex flex-col justify-center'>
-        <form>
+        <form className='maz-w-[400px] w-full mx-auto bg-gray-900 p-8 px-8'>
           <h2>Sign Up</h2>
           <div>
             <label>Email</label>
