@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../util/index';
 import { FormField, Loader } from '../components'
+import { useMutation } from '@apollo/client';
+import { GENERATE_IMAGE } from '../util/mutations';
+
 
 const CreatePost = () => {
     // navigate back to homepage once post is created
@@ -14,19 +17,37 @@ const CreatePost = () => {
         photo: '',
     });
     
+    const [getImage, {error} ] = useMutation(GENERATE_IMAGE);
+
     // contact API while waiting for image
     const [generatingImg, setGeneratingImg] = useState(false);
     // Loading
     const [loading, setLoading] = useState(false);
 
-    const generateImage = () => {
-
+    const generateImage = (evt) => {
+        evt.preventDefault();
+        if (!form.name) {
+            //TODO: add a toast message
+            alert('Please enter your name');
+            return;
+        }else if (!form.prompt) {
+            //TODO: add a toast message
+            alert('Please enter a prompt');
+            return;
+        }
+        console.log(form);
+        getImage({variables: {prompt: form.prompt}})
+        
+        if (error) {
+            console.log(error);
+        }
     }
 
     //
     const handleSubmit = () => {
-       
-    }
+        
+    };
+
 
     // update the form state when input values change
     const handleChange = (e) => {
@@ -99,6 +120,7 @@ const CreatePost = () => {
                 <div className='mt-5 flex gap-5'>
                     <button
                         type='button'
+                        /* onClick={generateImage} */
                         onClick={generateImage}
                         className='text-white bg-[#ff1867]-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
                         >
