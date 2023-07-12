@@ -1,5 +1,6 @@
 import "../styles/Home2.css";
 import { NavLink } from "react-router-dom";
+import logo from '../assets/IMAGEN.png';
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
                 ))}
             </div>
             <div className="relative z-20">
+                <div className="w-64 h-64">
+                    <img src={logo} alt="Logo"/>
+                </div>
                 {/* Your content goes here */}
                 <NavLink to="/protectedCluster">
                 <button
