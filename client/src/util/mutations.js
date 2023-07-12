@@ -15,3 +15,14 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const CREATE_POST = gql`
+    mutation CreatePost($body: String!) {
+        createPost(body: $body) {
+            name: name,
+            prompt: prompt,
+            photo: photo,
+            date: date,
+        }
+    }
+`;
