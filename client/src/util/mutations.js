@@ -25,3 +25,13 @@ export const GENERATE_IMAGE = gql`
         }
     }
 `;
+
+export const CREATE_POST = gql`
+    mutation createPost($name: String!, $prompt: String!, $photo: String!) {
+        createPost(name: $name, prompt: $prompt, photo: $photo) {
+            name
+            prompt
+            photo
+        }
+    }
+`;
