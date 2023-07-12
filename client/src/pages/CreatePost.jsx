@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../util/index';
 import { FormField, Loader } from '../components'
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { GENERATE_IMAGE } from '../util/mutations';
+import { CREATE_POST } from '../util/mutations';
 
 
 const CreatePost = () => {
@@ -18,6 +19,8 @@ const CreatePost = () => {
     });
     
     const [getImage, {error} ] = useMutation(GENERATE_IMAGE);
+
+    const [createPost, {postError}] = useMutation(CREATE_POST);
 
     // contact API while waiting for image
     const [generatingImg, setGeneratingImg] = useState(false);
@@ -54,8 +57,25 @@ const CreatePost = () => {
     }
 
     //
-    const handleSubmit = () => {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
         
+        if (form.prompt && form.photo) {
+            setLoading(true);
+
+            try {
+                createPost({variables: {name: form.name, prompt: form.prompt, photo: form.photo}})
+                if (postError) {
+                    console.log(postError);
+                }
+            }catch(err) {
+                console.log(err);
+                setLoading(false);
+            }
+            setInterval(() => {
+                setLoading(false);
+              }, 2000);
+        }    
     };
 
 
