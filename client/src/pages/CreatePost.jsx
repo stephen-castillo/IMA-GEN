@@ -26,6 +26,7 @@ const CreatePost = () => {
 
     const generateImage = (evt) => {
         evt.preventDefault();
+        setGeneratingImg(true);
         if (!form.name) {
             //TODO: add a toast message
             alert('Please enter your name');
@@ -36,8 +37,17 @@ const CreatePost = () => {
             return;
         }
         console.log(form);
-        getImage({variables: {prompt: form.prompt}})
-        
+        getImage({variables: {name: form.name, prompt: form.prompt }})
+        .then((res) => {
+            console.log(res);
+            console.log(res.data.getImage.photo);
+            setForm({...form, photo: res.data.getImage.photo});
+            setGeneratingImg(false);
+        }).catch((err) => {
+            console.log(err);
+            setGeneratingImg(false);
+        });
+
         if (error) {
             console.log(error);
         }
@@ -80,6 +90,7 @@ const CreatePost = () => {
                     placeholder='Some Name'
                     value={form.name}
                     handleChange={handleChange}
+                    required
                     />
                      <FormField 
                     LabelName='Prompt'
@@ -90,11 +101,12 @@ const CreatePost = () => {
                     handleChange={handleChange}
                     isSurpriseMe
                     handleSurpriseMe={handleSurpriseMe}
+                    required
                     />
 
                     <div
                         className='relative bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg
-                        focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
+                        focus:ring-blue-500 focus:border-blue-500 w-max p-3 h-max flex justify-center items-center'>
                             {form.photo ? (
                                 <img src={form.photo}
                                 alt={form.prompt}
@@ -104,7 +116,7 @@ const CreatePost = () => {
                                 <img 
                                 src={preview}
                                 alt='preview'
-                                className='w-9/12 h-9/12 object-contain opacity-40'
+                                className='w-9/12 h-9/12 object-contain w-64 h-64 opacity-40'
                                 />
                             )}
 
