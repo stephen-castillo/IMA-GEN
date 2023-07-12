@@ -120,7 +120,7 @@ export default function SignUp() {
       </div>
 
       <div className='bg-[#0c192c]-800 flex flex-col justify-center'>
-        <form className='max-w-[400px] w-full mx-auto bg-gray-800 p-8 px-8 rounded-lg'>
+        <form className='max-w-[400px] w-full mx-auto bg-gray-800 p-8 px-8 rounded-lg' onSubmit={handleSubmit}>
           <h2 className='text-4x1 text-white font-extrabold text-center'>Sign Up!</h2>
           <div className='flex flex-col text-white-500 py-2'>
             <label>Email</label>
@@ -159,7 +159,7 @@ export default function SignUp() {
             <p className='flex items-center'><input className='mr-2' type='checkbox'/> Remember Me</p>
             <p>Forgot Password</p>
           </div>
-          <button className='w-full my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500/40 text-white font-semibold rounded-lg'>Sign In</button>
+          <button className='w-full my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500/40 text-white font-semibold rounded-lg SButton'>Sign In</button>
         </form>
       </div>
 
