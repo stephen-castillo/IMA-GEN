@@ -24,7 +24,7 @@ export default function Home() {
             </div>
             <div className="relative z-20">
                 {/* Your content goes here */}
-                <NavLink to="/protected">
+                <NavLink to="/protectedCluster">
                 <button
                     id="GSbutton"
                     className="GSbutton"

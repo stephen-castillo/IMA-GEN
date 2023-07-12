@@ -14,6 +14,7 @@ import { ME, GET_POSTS } from "../util/queries";
 
 import React, { useEffect, useState } from "react";
 import { Card, FormField, Loader } from "../components";
+import "../styles/Cluster.css";
 
 const renderDate = (date) =>
   `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
@@ -28,31 +29,35 @@ const RenderCards = ({ data, title }) => {
   );
 };
 
-export default function ProtectedUserPage() {
-    const { user } = useAuth();
-    const { data, loading } = useQuery(ME, {
-        fetchPolicy: "network-only",
-    });
-    console.log(user);
+export default function ProtectedCluster() {
+  const { user } = useAuth();
+  const { data, loading } = useQuery(ME, {
+    fetchPolicy: "network-only",
+  });
+  console.log(user);
 
-    const [loadingb, setLoading] = useState(false);
-    const [allPosts, setAllPosts] = useState(null);
-    const [searchText, setSearchText] = useState("");
-    const [searchTimeout, setSearchTimeout] = useState(null);
-    const [searchedResults, setSearchedResults] = useState(null);
+  const [loadingb, setLoading] = useState(false);
+  const [allPosts, setAllPosts] = useState(null);
+  const [searchText, setSearchText] = useState("");
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResults, setSearchedResults] = useState(null);
 
-    const { loading: postLoading, error: postError, data: postData } = useQuery(GET_POSTS);
-    
-    console.log(postLoading, postError, postData);
+  const {
+    loading: postLoading,
+    error: postError,
+    data: postData,
+  } = useQuery(GET_POSTS);
 
-    useEffect(() => {
-        if (postLoading) {
-            setLoading(true);
-        } else {
-            setLoading(false);
-            setAllPosts(postData?.posts);
-        }
-    }, [postLoading, postData]);
+  console.log(postLoading, postError, postData);
+
+  useEffect(() => {
+    if (postLoading) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+      setAllPosts(postData?.posts);
+    }
+  }, [postLoading, postData]);
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -71,7 +76,8 @@ export default function ProtectedUserPage() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto">
+    <div className="scroll-container overflow-y-auto">
+    <section className="cluster max-w-7xl mx-auto ">
       <div>
         <h1 className="mt-8 ml-4 text-[white] text-[13.5px] max-w-[200px]">
           Welcome {user.username}!
@@ -92,7 +98,7 @@ export default function ProtectedUserPage() {
         </p>
       </div>
 
-      <div className="mt-48 ml-4">
+      <div className="mt-24 ml-4">
         <FormField
           labelName="Search posts"
           type="text"
@@ -115,9 +121,12 @@ export default function ProtectedUserPage() {
                 <span className="text-[#1535d4]">{searchText}</span>:
               </h2>
             )}
-            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6">
+            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6 h-full overflow-y-auto">
               {searchText ? (
-                <RenderCards data={searchedResults} title="No Search Results Found" />
+                <RenderCards
+                  data={searchedResults}
+                  title="No Search Results Found"
+                />
               ) : (
                 <RenderCards data={allPosts} title="No Posted AI Images Yet" />
               )}
@@ -126,5 +135,6 @@ export default function ProtectedUserPage() {
         )}
       </div>
     </section>
+    </div>
   );
 }
