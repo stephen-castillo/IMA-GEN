@@ -4,6 +4,13 @@ const typeDefs = gql`
   "Unix time stamp in milliseconds."
   scalar Date
 
+    type Post {
+        id: ID!
+        name: String!
+        prompt: String!
+        photo: String!
+    }
+
     type Model {
         id: ID!
         object: String
@@ -34,12 +41,14 @@ const typeDefs = gql`
         listModels: ModelList
         getEngines: [String]
         history: HistoryItems
+        posts: [Post!]!
     }
     
     type Mutation {
         createUser(email: String!, password: String!, username: String!): Auth
         login(email: String!, password: String!): Auth
         getImage(prompt: String!, name:String!): DalleImage!
+        createPost(name: String!, prompt: String!, photo: String!): Post!
     }
 
     type DalleImage {

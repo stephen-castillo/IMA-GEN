@@ -16,7 +16,7 @@ export default function Navbar() {
       {isLoggedIn ? (
         <>
           <NavLink to="/protected" className="navbar-link ml-2">
-            User
+            Cluster
           </NavLink>
           <button className="navbar-link ml-2" onClick={logout}>
             Logout

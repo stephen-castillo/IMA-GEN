@@ -6,6 +6,8 @@ const { User } = require("../models");
 const { signToken } = require("../util/auth");
 const { dateScalar } = require("./customScalars");
 const { openaiInterface, getEngines, listModels, getImage, makePrompt } = require("../util/aiapi");
+const Post = require('../models/post');
+const cloudinary = require('../util/cloudy');
 
 const resolvers = {
   Date: dateScalar,
@@ -26,6 +28,14 @@ const resolvers = {
         const models = await openaiInterface.listModels();
         //console.log(models.data);
         return models.data;
+    },
+    posts: async () => {
+        try {
+            const posts = await Post.find({});
+            return posts;
+        } catch (error) {
+            throw new Error('Unable to fetch posts');
+        }
     },
   },
   Mutation: {
@@ -73,7 +83,20 @@ const resolvers = {
         const photo = aiPrompt.data.data[0].url;
         //console.log(photo);
         return { prompt, name, photo };
-    }
+    },
+    createPost: async (_, { name, prompt, photo }) => {
+        try {
+            const photo_url = await cloudinary.uploader.upload(photo);
+            const newPost = await Post.create({
+                name,
+                prompt,
+                photo: photo_url.url,
+            });
+            return newPost;
+        } catch (error) {
+            throw new Error('Unable to create post');
+        }
+    },
   },
 };
 
