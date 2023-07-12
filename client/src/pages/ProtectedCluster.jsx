@@ -14,6 +14,7 @@ import { ME, GET_POSTS } from "../util/queries";
 
 import React, { useEffect, useState } from "react";
 import { Card, FormField, Loader } from "../components";
+import "../styles/Cluster.css";
 
 const renderDate = (date) =>
   `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
@@ -75,7 +76,8 @@ export default function ProtectedCluster() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto">
+    <div className="scroll-container overflow-y-auto">
+    <section className="cluster max-w-7xl mx-auto ">
       <div>
         <h1 className="mt-8 ml-4 text-[white] text-[13.5px] max-w-[200px]">
           Welcome {user.username}!
@@ -119,7 +121,7 @@ export default function ProtectedCluster() {
                 <span className="text-[#1535d4]">{searchText}</span>:
               </h2>
             )}
-            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6">
+            <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6 h-full overflow-y-auto">
               {searchText ? (
                 <RenderCards
                   data={searchedResults}
@@ -133,5 +135,6 @@ export default function ProtectedCluster() {
         )}
       </div>
     </section>
+    </div>
   );
 }
