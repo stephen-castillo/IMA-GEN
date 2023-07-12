@@ -46,7 +46,7 @@ const surpriseMePrompts = ['A futuristic cityscape with towering skyscrapers and
 'A remote research outpost in the Arctic, studying the effects of climate change.',
 'A parallel universe where magic and advanced technology coexist.',
 'A magnificent starship traveling through a wormhole to another galaxy.',
-'Two galaxies coliding into one.',
+'Two galaxies colliding into one.',
 'A intergalactic alien space war between two different species of beings.'];
 
 module.exports = surpriseMePrompts;
