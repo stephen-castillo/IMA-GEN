@@ -10,7 +10,7 @@
 
 import { useQuery } from "@apollo/client";
 import { useAuth } from "../util/auth";
-import { ME } from "../util/queries";
+import { ME, GET_POSTS } from "../util/queries";
 
 import React, { useEffect, useState } from "react";
 import { Card, FormField, Loader } from "../components";
@@ -29,46 +29,30 @@ const RenderCards = ({ data, title }) => {
 };
 
 export default function ProtectedUserPage() {
-  const { user } = useAuth();
-  const { data, loading } = useQuery(ME, {
-    fetchPolicy: "network-only",
-  });
-  console.log(user);
+    const { user } = useAuth();
+    const { data, loading } = useQuery(ME, {
+        fetchPolicy: "network-only",
+    });
+    console.log(user);
 
-  const [loadingb, setLoading] = useState(true);
-  const [allPosts, setAllPosts] = useState(null);
-  const [searchText, setSearchText] = useState("");
-  const [searchTimeout, setSearchTimeout] = useState(null);
-  const [searchedResults, setSearchedResults] = useState(null);
+    const [loadingb, setLoading] = useState(false);
+    const [allPosts, setAllPosts] = useState(null);
+    const [searchText, setSearchText] = useState("");
+    const [searchTimeout, setSearchTimeout] = useState(null);
+    const [searchedResults, setSearchedResults] = useState(null);
 
-  const fetchPosts = async () => {
-    setLoading(true);
+    const { loading: postLoading, error: postError, data: postData } = useQuery(GET_POSTS);
+    
+    console.log(postLoading, postError, postData);
 
-    try {
-      const response = await fetch(
-        "https://dalle-arbb.onrender.com/api/v1/post",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+    useEffect(() => {
+        if (postLoading) {
+            setLoading(true);
+        } else {
+            setLoading(false);
+            setAllPosts(postData?.posts);
         }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        setAllPosts(result.data.reverse());
-      }
-    } catch (err) {
-      alert(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+    }, [postLoading, postData]);
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
