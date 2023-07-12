@@ -78,7 +78,6 @@ const CreatePost = () => {
         }    
     };
 
-
     // update the form state when input values change
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value})
@@ -93,7 +92,7 @@ const CreatePost = () => {
     return (
         <section className='max-w-7x1 mx-auto'>
             <div>
-                <h1 className='font-extrabold text-white text-[32px]'>
+                <h1 className='font-extrabold text-[#ffbe00] text-[32px]'>
                     Create 
                 </h1>
                 <p className= 'mt-2 text-[#666e75] text-[16px] max-w-[500px]'>

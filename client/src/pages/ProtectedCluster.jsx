@@ -28,31 +28,35 @@ const RenderCards = ({ data, title }) => {
   );
 };
 
-export default function ProtectedUserPage() {
-    const { user } = useAuth();
-    const { data, loading } = useQuery(ME, {
-        fetchPolicy: "network-only",
-    });
-    console.log(user);
+export default function ProtectedCluster() {
+  const { user } = useAuth();
+  const { data, loading } = useQuery(ME, {
+    fetchPolicy: "network-only",
+  });
+  console.log(user);
 
-    const [loadingb, setLoading] = useState(false);
-    const [allPosts, setAllPosts] = useState(null);
-    const [searchText, setSearchText] = useState("");
-    const [searchTimeout, setSearchTimeout] = useState(null);
-    const [searchedResults, setSearchedResults] = useState(null);
+  const [loadingb, setLoading] = useState(false);
+  const [allPosts, setAllPosts] = useState(null);
+  const [searchText, setSearchText] = useState("");
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResults, setSearchedResults] = useState(null);
 
-    const { loading: postLoading, error: postError, data: postData } = useQuery(GET_POSTS);
-    
-    console.log(postLoading, postError, postData);
+  const {
+    loading: postLoading,
+    error: postError,
+    data: postData,
+  } = useQuery(GET_POSTS);
 
-    useEffect(() => {
-        if (postLoading) {
-            setLoading(true);
-        } else {
-            setLoading(false);
-            setAllPosts(postData?.posts);
-        }
-    }, [postLoading, postData]);
+  console.log(postLoading, postError, postData);
+
+  useEffect(() => {
+    if (postLoading) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+      setAllPosts(postData?.posts);
+    }
+  }, [postLoading, postData]);
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -92,7 +96,7 @@ export default function ProtectedUserPage() {
         </p>
       </div>
 
-      <div className="mt-48 ml-4">
+      <div className="mt-24 ml-4">
         <FormField
           labelName="Search posts"
           type="text"
@@ -117,7 +121,10 @@ export default function ProtectedUserPage() {
             )}
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3 ml-6">
               {searchText ? (
-                <RenderCards data={searchedResults} title="No Search Results Found" />
+                <RenderCards
+                  data={searchedResults}
+                  title="No Search Results Found"
+                />
               ) : (
                 <RenderCards data={allPosts} title="No Posted AI Images Yet" />
               )}

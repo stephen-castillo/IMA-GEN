@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import RequireAuth from "./components/RequireAuth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import ProtectedUserPage from "./pages/ProtectedUserPage";
+import ProtectedCluster from "./pages/ProtectedCluster";
 import CreatePost from "./pages/CreatePost";
 import SignUp from "./pages/SignUp";
 import { client } from "./util/apolloClient";
@@ -23,21 +23,21 @@ function App() {
             {/* Use <RequiredAuth> for pages that should only be accessible to a
             user that has logged in.*/}
             <Route
-              path="/protected"
+              path="/protectedCluster"
               element={
                 <RequireAuth>
-                  <ProtectedUserPage />
+                  <ProtectedCluster/>
                 </RequireAuth>
               }
             />
-                   <Route
+            <Route
               path="/protectedCreatePost"
               element={
                 <RequireAuth>
                   <CreatePost />
                 </RequireAuth>
               }
-            />     
+            />
           </Routes>
         </AuthProvider>
       </Router>
