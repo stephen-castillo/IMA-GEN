@@ -24,8 +24,9 @@ export default function Home() {
                 ))}
             </div>
             <div className="relative z-20 flex flex-col items-center">
-                <div className="w-64 h-64 ">
-                    <img src={logo} alt="Logo" className='mx-auto'/>
+                <div className="logoBox " style={{position: 'absolute', display:'block', width: '640px',top: '20vh', left: '50vw',
+    transform: 'translate(-50%, -50%)', zIndex:'1'}}>
+                    <img src={logo} alt="Logo" />
                 </div>
                 {/* Your content goes here */}
                 <NavLink to="/protectedCluster">
