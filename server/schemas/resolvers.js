@@ -59,7 +59,9 @@ const resolvers = {
     },
 
     getImage: async (parent, args) => {
+        console.log(args);
         const prompt = args.prompt;
+        const name = args.name;
         const aiPrompt = await openaiInterface.createImage( { 
             prompt: prompt,
             n: 4,
