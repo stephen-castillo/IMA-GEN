@@ -194,7 +194,7 @@ export default function Login() {
       </div>
 
       <div className='bg-[#0c192c]-800 flex flex-col justify-center'>
-        <form className='max-w-[400px] w-full mx-auto bg-gray-800 p-8 px-8 rounded-lg'>
+        <form className='max-w-[400px] w-full mx-auto bg-gray-800 p-8 px-8 rounded-lg' onSubmit={handleSubmit}>
           <h2 className='text-4x1 text-white font-extrabold text-center'>Log In</h2>
           <div className='flex flex-col text-white-500 py-2'>
             <label>Email</label>
