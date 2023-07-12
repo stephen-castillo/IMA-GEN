@@ -15,17 +15,38 @@ const typeDefs = gql`
         object: String
     }
 
+    type HistoryItem {
+        id: ID!
+        name: String!
+        prompt: String!
+        photo: String!
+        date: Date!
+    }
+
+    type HistoryItems {
+        data: [HistoryItem]
+        object: String
+    }
+
     type Query {
         "Find the logged in user."
         me: User
         listModels: ModelList
-        getEngines: [String]  
+        getEngines: [String]
+        history: HistoryItems
     }
     
     type Mutation {
         createUser(email: String!, password: String!, username: String!): Auth
         login(email: String!, password: String!): Auth
-        getImage(prompt: String!): String
+        getImage(prompt: String!, name:String!): DalleImage!
+    }
+
+    type DalleImage {
+        prompt: String
+        name: String
+        photo: String
+        date: Date
     }
 
     type Auth {
