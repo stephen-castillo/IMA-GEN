@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../util/index';
 import { FormField, Loader } from '../components'
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { GENERATE_IMAGE } from '../util/mutations';
+import { CREATE_POST } from '../util/mutations';
 
 
 const CreatePost = () => {
@@ -19,6 +20,8 @@ const CreatePost = () => {
     
     const [getImage, {error} ] = useMutation(GENERATE_IMAGE);
 
+    const [createPost, {postError}] = useMutation(CREATE_POST);
+
     // contact API while waiting for image
     const [generatingImg, setGeneratingImg] = useState(false);
     // Loading
@@ -26,6 +29,7 @@ const CreatePost = () => {
 
     const generateImage = (evt) => {
         evt.preventDefault();
+        setGeneratingImg(true);
         if (!form.name) {
             //TODO: add a toast message
             alert('Please enter your name');
@@ -36,16 +40,42 @@ const CreatePost = () => {
             return;
         }
         console.log(form);
-        getImage({variables: {prompt: form.prompt}})
-        
+        getImage({variables: {name: form.name, prompt: form.prompt }})
+        .then((res) => {
+            console.log(res);
+            console.log(res.data.getImage.photo);
+            setForm({...form, photo: res.data.getImage.photo});
+            setGeneratingImg(false);
+        }).catch((err) => {
+            console.log(err);
+            setGeneratingImg(false);
+        });
+
         if (error) {
             console.log(error);
         }
     }
 
     //
-    const handleSubmit = () => {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
         
+        if (form.prompt && form.photo) {
+            setLoading(true);
+
+            try {
+                createPost({variables: {name: form.name, prompt: form.prompt, photo: form.photo}})
+                if (postError) {
+                    console.log(postError);
+                }
+            }catch(err) {
+                console.log(err);
+                setLoading(false);
+            }
+            setInterval(() => {
+                setLoading(false);
+              }, 2000);
+        }    
     };
 
 
@@ -80,6 +110,7 @@ const CreatePost = () => {
                     placeholder='Some Name'
                     value={form.name}
                     handleChange={handleChange}
+                    required
                     />
                      <FormField 
                     LabelName='Prompt'
@@ -90,11 +121,12 @@ const CreatePost = () => {
                     handleChange={handleChange}
                     isSurpriseMe
                     handleSurpriseMe={handleSurpriseMe}
+                    required
                     />
 
                     <div
                         className='relative bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg
-                        focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center'>
+                        focus:ring-blue-500 focus:border-blue-500 w-max p-3 h-max flex justify-center items-center'>
                             {form.photo ? (
                                 <img src={form.photo}
                                 alt={form.prompt}
@@ -104,7 +136,7 @@ const CreatePost = () => {
                                 <img 
                                 src={preview}
                                 alt='preview'
-                                className='w-9/12 h-9/12 object-contain opacity-40'
+                                className='w-9/12 h-9/12 object-contain w-64 h-64 opacity-40'
                                 />
                             )}
 
@@ -122,7 +154,7 @@ const CreatePost = () => {
                         type='button'
                         /* onClick={generateImage} */
                         onClick={generateImage}
-                        className='text-white bg-[#ff1867]-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
+                        className='text-white bg-[#4A648C] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center'
                         >
                            {generatingImg ? 'Generating...' : 'Generate'} 
                     </button>

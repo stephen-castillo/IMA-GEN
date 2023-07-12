@@ -10,3 +10,14 @@ export const ME = gql`
     }
   }
 `;
+
+export const GET_POSTS = gql`
+    query posts {
+        posts {
+            name
+            prompt
+            photo
+            id
+        }
+    }
+`;

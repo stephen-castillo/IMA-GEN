@@ -19,11 +19,19 @@ export const LOGIN = gql`
 export const GENERATE_IMAGE = gql`
     mutation getImage($name: String!, $prompt: String!) {
         getImage(name: $name, prompt: $prompt) {
-            id
             name
             prompt
             photo
-            date
+        }
+    }
+`;
+
+export const CREATE_POST = gql`
+    mutation createPost($name: String!, $prompt: String!, $photo: String!) {
+        createPost(name: $name, prompt: $prompt, photo: $photo) {
+            name
+            prompt
+            photo
         }
     }
 `;
