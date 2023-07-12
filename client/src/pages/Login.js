@@ -49,7 +49,7 @@
 
 //   if (isLoggedIn) {
 //     // navigate to page user was redirected from or the home page.
-//     const from = location.state?.from?.pathname || "/protected";
+//     const from = location.state?.from?.pathname || "/protectedCluster";
 //     return <Navigate to={from} replace />
 //   }
 
@@ -131,7 +131,7 @@ export default function Login() {
 
   if (isLoggedIn) {
     // navigate to page user was redirected from or the home page.
-    const from = location.state?.from?.pathname || "/protected";
+    const from = location.state?.from?.pathname || "/protectedCluster";
     return <Navigate to={from} replace />;
   }
 
