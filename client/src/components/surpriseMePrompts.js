@@ -1,3 +1,4 @@
+// 50 prompts used for the surprise me button
 const surpriseMePrompts = ['A futuristic cityscape with towering skyscrapers and flying vehicles.',
 'Exploring an alien planet with breathtaking landscapes and unique flora.',
 'A thrilling space battle among the stars.',
