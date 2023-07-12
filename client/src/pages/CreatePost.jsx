@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
-import { getRandomPrompt } from '../util';
+import { getRandomPrompt } from '../util/index';
 import { FormField, Loader } from '../components'
 
 const CreatePost = () => {
@@ -25,7 +25,7 @@ const CreatePost = () => {
 
     //
     const handleSubmit = () => {
-        
+       
     }
 
     // update the form state when input values change
