@@ -23,9 +23,9 @@ export default function Home() {
                     </div>
                 ))}
             </div>
-            <div className="relative z-20">
-                <div className="w-64 h-64">
-                    <img src={logo} alt="Logo"/>
+            <div className="relative z-20 flex flex-col items-center">
+                <div className="w-64 h-64 ">
+                    <img src={logo} alt="Logo" className='mx-auto'/>
                 </div>
                 {/* Your content goes here */}
                 <NavLink to="/protectedCluster">

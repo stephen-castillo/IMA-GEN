@@ -215,7 +215,12 @@ export default function Login() {
           <div className='flex flex-col text-white-500 py-2'>
             <label>Password</label>
             <input className='rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:ng-gray-800 fcous:outline-none'
-            type='password'/>
+            id='password'
+            type='password'
+            name='password'
+            placeholder='Enter Password'
+            value={formState.password}
+            onChange={handleInputChange}/>
           </div>
           <div className='flexbox jusitfy-between text-white-500 py-2 '>
             <p className='flex items-center'><input className='mr-2' type='checkbox'/> Remember Me</p>
