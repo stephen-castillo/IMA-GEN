@@ -53,10 +53,12 @@ npm install
 
 
 ## Screenshots
-
-
-
-
+![Alt text](client/src/assets/IMA-GEN1.png)
+![Alt text](client/src/assets/IMA-GEN2.png)
+![Alt text](client/src/assets/IMA-GEN3.png)
+![Alt text](client/src/assets/IMA-GEN4.png)
+![Alt text](client/src/assets/IMA-GEN5.png)
+![Alt text](client/src/assets/IMA-GEN6.png)
 ## Deployment Link
 
 The Task Manager Application is deployed on Heroku. Please visit the following link to access the live application: [https://ima-gen-1220c390e173.herokuapp.com/](https://ima-gen-1220c390e173.herokuapp.com/)
